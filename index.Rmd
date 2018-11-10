@@ -119,7 +119,7 @@ panim <- p +
 gganimate::animate(panim, fps=35, width=400, height=400)
 ```
 
-# Project inspiration
+# Project Inspiration
 
 ***
 
@@ -144,7 +144,7 @@ It was then that I discovered two very enjoyable examples of `gamification`:
 knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 ```
 
-+ [`shortcutFoo`](https://www.shortcutfoo.com/) teachs you shortcuts for `Vim`, `Emacs`, `Command Line`, `Regex` *etc.* via **interval training**, which is essentially spaced repetition. This helps you memorize shortcuts more efficiently.
++ [`shortcutFoo`](https://www.shortcutfoo.com/) teaches you shortcuts for `Vim`, `Emacs`, `Command Line`, `Regex` *etc.* via **interval training**, which is essentially spaced repetition. This helps you memorize shortcuts more efficiently.
 
 ![](shortcutFoo.png)
 
@@ -185,7 +185,7 @@ knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 
 I used the [`blogdown`](https://bookdown.org/yihui/blogdown/) package to allow me to write blog posts as R Markdown documents, knitting everything to a nice neat static website that I can push online. It was a nice opportunity to learn a bit about pandoc, Hugo, CSS/HTML lurking beneath the server side code. I decided to go with the [Academic theme](https://themes.gohugo.io/academic/) for [Hugo](https://gohugo.io/), pull in as much data as I could from the Fitbit API, clean it up, and then perform some exploratory data analysis. In the process, I generated some cool animated sprites and use video game inspired visualizations.
 
-## Setting up a Fitbit developer account
+## Setting up a Fitbit Developer Account
 
 ***
 
@@ -210,11 +210,11 @@ token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2VERTWksiLCJhdWQiOiIyMkNaTkIiLCJpc3MiOi
 knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 ```
 
-# Using the `fitbitr` package
+# Using The `fitbitr` Package
 
 ***
 
-I had never made an `HTTP` request before and although the process is officially documented [here]((https://dev.fitbit.com/build/reference/web-api/oauth2/)) it can be a *tad* overwhelming. Therefore, I initally resorted to using an `R` package built to access the R API, under-the-hood, called `fitbitr`. 
+I had never made an `HTTP` request before and although the process is officially documented [here]((https://dev.fitbit.com/build/reference/web-api/oauth2/)) it can be a *tad* overwhelming. Therefore, I initially resorted to using an `R` package built to access the R API, under-the-hood, called `fitbitr`. 
 
 Unfortunately this would limit me to only accessing some basic user information, `heart rate` and `step count` data. 
 
@@ -269,9 +269,9 @@ My average daily steps is `r averageDailySteps`.
 
 Considering that the daily recommended steps is 10,000 I'd say that's acceptable. That being said, there's always room for improvement.
 
-## Accessing heart rate and footsteps with the `fitbitr` pacakge
+## Accessing Heart Rate And Footsteps With The `fitbitr` Pacakge
 
-I'm going to grab a week's worth of data for a very prelimary EDA.
+I'm going to grab a week's worth of data for a very preliminary EDA.
 
 ```{r period of day, eval = T, echo = T, message = F, warning = F, error = F}
 # Smashing buttons
@@ -363,7 +363,7 @@ knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 
 ***
 
-Since this is a post about `gamification` I decided to do something fun with my exploratory data visualizations. I wanted to use the `Rokemon` package which allows me to set the theme of `ggplot2` (and `ggplot2` extensions) to `Game Boy` and `Game Boy Advance` themes! When convient, I've combined plots with `cowplot`.
+Since this is a post about `gamification` I decided to do something fun with my exploratory data visualizations. I wanted to use the `Rokemon` package which allows me to set the theme of `ggplot2` (and `ggplot2` extensions) to `Game Boy` and `Game Boy Advance` themes! When convenient, I've combined plots with `cowplot`.
 
 Let's take a quick look at the relationship and distribution of `heart rate` and `step count`.
 
@@ -383,7 +383,7 @@ plot_grid(gb, gba, labels = c("", ""), align = "h")
 
 ```
 
-Alternatively, we could get a better look at the data by adding marginal density plots to the scatterplots with the `ggMarginal()` function from the `ggExtra` package.
+Alternatively, we could get a better look at the data by adding marginal density plots to the scatter-plots with the `ggMarginal()` function from the `ggExtra` package.
 
 ```{r}
 # Farming EXP
@@ -399,7 +399,7 @@ plot_grid(gb, gba, labels = c("", ""), align = "h")
 knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 ```
 
-## Weekly trends
+## Weekly Trends
 
 ***
 
@@ -427,7 +427,7 @@ g + theme_gameboy()
 g + theme_gba()
 ```
 
-`Heart rate` is a little right-skewed, probably due to sleep and sedentary work. Similarily, for `step count` you see that only a small bump under `brisk walking pace` from when I skateboarded to work. 
+`Heart rate` is a little right-skewed, probably due to sleep and sedentary work. Similarly, for `step count` you see that only a small bump under `brisk walking pace` from when I skateboarded to work. 
 
 ```{r echo=FALSE}
 # Add space between the introduction of the document
@@ -435,7 +435,7 @@ knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 ```
 
 
-## Exercise patterns
+## Exercise Patterns
 
 ***
 
@@ -471,7 +471,7 @@ knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 ```
 
 
-## Most active time
+## Most Active Time Of The Week
 
 ***
 
@@ -499,22 +499,22 @@ g + theme_gameboy()
 g + theme_gba()
 ```
 
-The distribution of steps per-minute was pretty constant because as I said I didn't work-out; this likely reflects me shuffling to get tea.
+The distribution of steps per-minute was pretty constant because I didn't work-out much that week.
 
-It looks like Monday was the day I got my heart rate up the most, the biomodal peak is probably when I was running around looking for a rental property.
+It looks like Monday was the day I got my heart rate up the most, the bi modal peak is probably when I was running around looking for a rental property.
 
 ```{r echo=FALSE}
 # Add space in the document
 knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 ```
 
-# Accessing the Fitbit API directly with the `httr` package
+# Accessing The Fitbit API Directly With The `httr` Package
 
 ***
 
 Eventually, I found an excellent [tutorial](https://obrl-soil.github.io/fitbit-api-r/) by [obrl-soil](https://github.com/obrl-soil) which introduced me to the `httr` package and gave me the confidence I needed to peruse the [Fitbit DEV web API reference](https://dev.fitbit.com/build/reference/web-api/). Now I was able to gain access to far more sources of data.
 
-## What data is available?
+## What Data Is Available?
 
 ***
 
@@ -580,7 +580,7 @@ dt03 %>%
   column_spec(2, width = "30em", background = "#E3F24D")
 ```
 
-Define a function for turning a `json` list into a dataframe.
+Define a function for turning a `json` list into a data frame.
 
 ```{r, eval = T, echo = T, message = F, warning = F, error = F}
 # Inserting last-minute subroutines into program...
@@ -593,7 +593,7 @@ jsonlist_to_df <- function(data = NULL) {
 }
 ```
 
-## Investigating my 10Km run
+## Investigating My 10Km Run
 
 ***
 
@@ -653,7 +653,7 @@ meps_max <- function(age = NULL) { 207 - (0.7 * age) }
 
 Mine is `r meps_max(30)`.
 
-Now is we create a tribble with 4 heart ranges showing the lower and higher bounds and use the `mutate()` function from above to calculate what my max heart rate is (with lower and upper bounds). 
+Now create a tribble of 4 heart ranges along with `mutate()` to calculate what my max heart rate is (with lower and upper bounds). 
 
 ```{r}
 # Taking the hobbits to Isengard
@@ -668,7 +668,7 @@ my_MEPS <- tribble(~MEPS, ~hr_range, ~hr_lo, ~hr_hi,
 my_MEPS
 ```
 
-With the equation now defined let's calculate my total MEPS:
+With the equation now defined let's calculate my total `MEPS`:
 
 ```{r}
 # Checkpoint!
@@ -684,11 +684,11 @@ mep <- mutate(workout$`activities-heart-intraday`$dataset,
 
 Wow it's `r mep`!
 
-I'm not sure what that exactly means but apparently the maxium possible MEPS in a 42-minute workout is 168 and since I ran this 10Km in 54:35 I guess that's good?
+I'm not sure what that exactly means but apparently the maxim possible MEPS in a 42-minute workout is 168 and since I ran this 10Km in 54:35 I guess that's good?
 
 I'd like to post sub 50 minutes on my next 10Km run but I'm not sure if I should be aiming to shoot for a greater percentage of `peak` heart rate minutes or not - guess I will need to look into this.
 
-## Minute-by-minute sleep data for one night
+## Minute-by-Minute Sleep Data For One Night
 
 ***
 
@@ -719,8 +719,8 @@ sleep_pattern <- bind_rows(sleep_pattern, tmp)
 
 Okay now that the data munging is complete, let's look at my sleep pattern.
 
-```{r, eval = T, echo = T, message = F, warning = F, error = F}
-# Now entering... The Twiligt Zone
+```{r, fig.width=10, eval = T, echo = T, message = F, warning = F, error = F}
+# Now entering... The Twilight Zone
 
 g <- sleep_pattern %>% group_by(level, seconds) %>% 
         summarise() %>% 
@@ -738,7 +738,7 @@ g + theme_gameboy()
 g + theme_gba()
 ```
 
-A pie chart is probably not the best way to show this data. Let's visualize the distribution with a boxplot.
+A pie chart is probably not the best way to show this data. Let's visualize the distribution with a box plot.
 
 ```{r, eval = T, echo = T, message = F, warning = F, error = F}
 # Entering Cheat Codes!
@@ -776,13 +776,13 @@ g + theme_gba()
 knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 ```
 
-## Get daily activity patterns for 3 months
+## Daily Activity Patterns For 3 Months
 
 ***
 
 You can do API requests for various periods from the Fitbit [Activity and Exercise Logs](https://dev.fitbit.com/build/reference/web-api/activity/) but since I've only had mine a couple months I'll use the `3m` period. 
 
-I will also need to trim off any day's which are in the future otherwise they'll appear as `0` calories in the figures. It's best to use the `Sys.Date()` function rather than hardcoding the date when doing `EDA`, making a Shiny app, or [parameterizing a `RMarkdown` file](https://resources.rstudio.com/rstudio-connect-2/parameterized-r-markdown-reports-with-rstudio-connect-aron-atkins). This way you can explore different time periods without anything breaking.  
+I will also need to trim off any day's which are in the future otherwise they'll appear as `0` calories in the figures. It's best to use the `Sys.Date()` function rather than hard coding the date when doing `EDA`, making a Shiny app, or [parameterizing a `RMarkdown` file](https://resources.rstudio.com/rstudio-connect-2/parameterized-r-markdown-reports-with-rstudio-connect-aron-atkins). This way you can explore different time periods without anything breaking.  
 
 I cannot remember when I started wearing my Fitbit but we can figure that out with the following code:
 
@@ -800,7 +800,7 @@ I've had my Fitbit since `r inception`.
 knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 ```
 
-Let's gather data from September 20th until November 6th 2018.
+Let's gather data from September 20 until November 6 2018.
 
 ```{r, eval = T, echo = T, message = F, warning = F, error = F}
 # Catching them all!
@@ -984,7 +984,7 @@ length(frequentActivities)
 str(frequentActivities)
 ```
 
-I would never have considered myself a [Darwin](https://www.psychologytoday.com/us/blog/how-think-about-exercise/201501/charles-darwins-daily-walks) or a [Thoreau](https://en.wikipedia.org/wiki/Walking_(Thoreau)) but apperently *strolling very slowly* is my favorite activity in terms of time spent. 
+I would never have considered myself a [Darwin](https://www.psychologytoday.com/us/blog/how-think-about-exercise/201501/charles-darwins-daily-walks) or a [Thoreau](https://en.wikipedia.org/wiki/Walking_(Thoreau)) but apparently *strolling very slowly* is my favorite activity in terms of time spent. 
 
 You can see that my Fitbit has also logged times for `Weights`, `Sports` and `Biking` which is likely from when I've manually logged my activities. There's a possibility that Fitbit is registering `Biking` for when I skateboard.
 
@@ -997,9 +997,9 @@ knitr::asis_output(htmltools::htmlPreserve("<br><br>"))
 
 ***
 
-Previously I had always used the `corrplot` package to create a correlation plot; however, it doesn't play nicely with `ggplot` meaning you cannot add `Game Boy` themes easily. Nonetheless, I was able to give it a retro-looking palette with some minor tweeking.
+Previously I had always used the `corrplot` package to create a correlation plot; however, it doesn't play nicely with `ggplot` meaning you cannot add `Game Boy` themes easily. Nonetheless, I was able to give it a retro-looking palette with some minor tweaking.
 
-Since I had two colors in mind from the original `gameboy`, and knew their `hex` code, I was able to [generate a pallete from this website](https://meyerweb.com/eric/tools/color-blend/#CADCA0:0F380E:10:hex).
+Since I had two colors in mind from the original `gameboy`, and knew their `hex` code, I was able to [generate a palette from this website](https://meyerweb.com/eric/tools/color-blend/#CADCA0:0F380E:10:hex).
 
 ```{r , fig.height = 7, eval = T, echo = T, message = F, warning = F, error = F}
 # Aligning Covariance Matrices 
@@ -1012,7 +1012,7 @@ corr <- cor(na.omit(corr_df))
 corrplot(corr, type = "upper", bg = "#9BBB0E", tl.col = "#565656", col = c("#CADCA0", "#B9CD93", "#A8BE85", "#97AF78", "#86A06B", "#75915E", "#648350", "#537443", "#426536", "#315629", "#20471B", "#0F380E"))
 ```
 
-In a correlation plot the color of each circle indicates the magnitude of the corrleation, and the size of the circle indicates its significance.
+In a correlation plot the color of each circle indicates the magnitude of the correlation, and the size of the circle indicates its significance.
 
 After a bit of searching for a `ggplot2` extension I was able to use `ggcorrplot` which allowed me to use `gameboy` themes again!
 
@@ -1072,7 +1072,7 @@ g + theme_gameboy() + theme(legend.position = "none")
 g + theme_gba() + theme(legend.position = "none")
 ```
 
-```{r , fig.width=10}
+```{r , fig.width=10, eval = T, echo = T, message = F, warning = F, error = F}
 # Panick! at the Discord...
 
 # gganimate
@@ -1086,7 +1086,6 @@ g <- activity_df %>%
         xlab("") +
         ylab("Calorie Expenditure") 
 
-g + theme_gameboy() + theme(legend.position = "none")
 g + theme_gba() + theme(legend.position = "none")
 ```
 
@@ -1230,7 +1229,7 @@ g + theme_gba() + theme(legend.position = "none")
 
 ***
 
-Even though Fitbit offers a nice dashboard for a single user it's not scaleable. By accessing the data direcetly one can ask the questions they want from 200 individuals - or more. If one was inclined, they could even build a fancy `Shiny` dashboard with bespoke vizualizations.
+Even though Fitbit offers a nice dashboard for a single user it's not scale-able. By accessing the data directly one can ask the questions they want from 200 individuals - or more. If one was inclined, they could even build a fancy `Shiny` dashboard with bespoke visualizations.
 
 If you have any questions or comments you can always reach me on [LinkedIn](https://www.linkedin.com/in/matthewoldach/). Till then, see you in the next post!
 
